@@ -63,15 +63,15 @@ let validate = function (form) {
         var field = form.elements[i];
         let t = field.checkValidity()
 
-        error = getChild(field.parentElement, 'input-error'); 
+        error = getChild(field.parentElement, 'input-group__error'); 
   
         if (!t) {
-            field.classList.add("invalid");
+            field.classList.add("invalid-field");
             field.classList.add("shake-animation");
             error.innerHTML = field.validationMessage;
             valid = false;
         } else {
-            field.classList.remove("invalid");
+            field.classList.remove("invalid-field");
             field.classList.remove("shake-animation");
             if(error != undefined){
                 error.innerHTML = "";

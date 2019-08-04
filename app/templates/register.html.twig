@@ -2,31 +2,39 @@
 
 {% block main %}
 
+
+
+<form method="post" action="/api/register" class="panel">
+
 <h2>Rejestracja</h2>
 
-<form method="post" action="/api/register">
-    <div>
-        Imie <input required name="first_name" type="text">
-        <span class="input-error"></span>
+    <div class="input-group">
+        <label class="input-group__label">Imie</label> 
+        <input required name="first_name" type="text"  class="input-group__input">
+        <span class="input-group__error"></span>
     </div>
-    <div>
-        Nazwisko <input required name="last_name">
-        <span class="input-error"></span>
+    <div class="input-group">
+        <label class="input-group__label">Nazwisko</label> 
+        <input required name="last_name"  class="input-group__input">
+        <span class="input-group__error"></span>
     </div>
-    <div>
-        Email <input name="email">
-        <span class="input-error"></span>
+    <div class="input-group">
+        <label class="input-group__label">Email</label> 
+        <input name="email"  required type="email" class="input-group__input">
+        <span class="input-group__error"></span>
     </div>
-    <div>
-        Opis <textarea name="description"></textarea>
-        <span class="input-error"></span>
+    <div class="input-group">
+        <label class="input-group__label">Opis</label> 
+        <textarea name="description" class="input-group__input input-group__input--textara"></textarea>
+        <span class="input-group__error"></span>
     </div>
-    <div>
-        Stanowisko <select name="emplacement"></select>
-        <span class="input-error"></span>
+    <div class="input-group">
+        <label class="input-group__label">Stanowisko</label> 
+        <select name="emplacement" class="input-group__input input-group__input--select"></select>
+        <span class="input-group__error"></span>
     </div>
 
-    <button class="ajx" type="submit">Wyślij</button>
+    <button class="ajx btn" type="submit">Zarejestruj</button>
 
 
     {# 

@@ -1,0 +1,13 @@
+$main-color : darken(#03a9f4, 20%);
+$red: #f44336;
+
+
+$base__font-size: 16;
+$base__line: 20;
+
+$base__brake-point: 600px;
+
+@function rem($target, $context: $base__font-size) {
+    @return ($target / $context) * 1rem;
+}
+

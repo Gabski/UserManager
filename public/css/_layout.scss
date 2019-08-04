@@ -1,0 +1,28 @@
+$layout__max-width: 1000 !default;
+
+$layout__bg-color: #DDDDDD !default;
+$layout__bg-image: none !default;
+$layout__bg-repeat: no-repeat !default;
+$layout__bg-position: top center !default;
+$layout__bg-size: 100% !default;
+
+%layout__block--centered {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+
+body{
+    background: #eee;
+    font-size: 16px;
+    font-family: 'Open Sans', Tahoma, Geneva, Verdana, sans-serif;
+    * {
+        box-sizing: border-box;
+    }
+}
+
+.layout__container { 
+    @extend %layout__block--centered;
+    max-width: rem($layout__max-width);  
+}
