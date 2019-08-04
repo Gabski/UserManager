@@ -8,5 +8,7 @@ class AppController
     {
         $loader = new Twig_Loader_Filesystem('app/templates');
         $this->twig = new Twig_Environment($loader);
+        $this->twig->addGlobal('main_url', Tools::serverUrl());
+
     }
 }
