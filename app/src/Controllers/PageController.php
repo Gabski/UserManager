@@ -4,11 +4,11 @@ class PageController extends AppController
 {
     public function home($args)
     {
-        return $this->twig->render("register.html.twig", []);
+        return (new ResponseTwig())->render("register.html.twig");
     }
 
     public function no_page($args)
     {
-        return $this->twig->render("no_page.html.twig", []);
+        return (new ResponseTwig())->render("no_page.html.twig");
     }
 }
