@@ -1,6 +1,6 @@
 <?php
 
-class ResponseTwig
+class ResponseTwig implements ResponseInterface
 {
     public $twig;
 
