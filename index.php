@@ -8,10 +8,10 @@ Router::add("/api/register", "RegisterController", 'register');
 
 try {
     $watch = Router::watch();
-    if (is_string($watch)) {
-        echo $watch;
-    } elseif (is_object($watch)) {
+    if (is_object($watch) && ($watch instanceof ResponseInterface)) {
         $watch->render();
+    } else if (is_string($watch)) {
+        echo $watch;
     } else {
         var_dump($watch);
     }

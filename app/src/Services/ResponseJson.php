@@ -1,5 +1,5 @@
 <?php
-class ResponseJson
+class ResponseJson implements ResponseInterface
 {
     public function __construct($data)
     {
