@@ -1,6 +1,56 @@
 {% extends "layout.html.twig" %}
 
 {% block main %}
-    Hello World!    
-{% endblock %}
 
+<h2>Rejestracja</h2>
+
+<form method="post" action="/api/register">
+    <div>
+        Imie <input required name="first_name" type="text">
+        <span class="input-error"></span>
+    </div>
+    <div>
+        Nazwisko <input required name="last_name">
+        <span class="input-error"></span>
+    </div>
+    <div>
+        Email <input name="email">
+        <span class="input-error"></span>
+    </div>
+    <div>
+        Opis <textarea name="description"></textarea>
+        <span class="input-error"></span>
+    </div>
+    <div>
+        Stanowisko <select name="emplacement"></select>
+        <span class="input-error"></span>
+    </div>
+
+    <button class="ajx" type="submit">Wyślij</button>
+
+
+    {# 
+- imie – obligatoryjne
+- nazwisko – obligatoryjne
+- email – obligatoryjne
+- opis - opcjonalne
+- stanowisko (select i 3 opcje do wyboru), w zależności od wybranej opcji wyświetlają się
+różne dodatkowe pola formularza
+• tester:
+o systemy testujące – string
+o systemy raportowe – string
+o zna selenium - checkbox
+• developer:
+o środowiska ide – string
+o języki programowania – string
+o zna mysql - checkbox
+• project manager:
+o metodologie prowadzenia projektów – string
+o systemy raportowe – string
+o zna scrum – checkbox #}
+
+
+</form>
+
+
+{% endblock %}
