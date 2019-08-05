@@ -3,10 +3,13 @@
 {% block main %}
 
 
+<div  class="panel">
 
-<form method="post" action="/api/save" class="panel">
+<a href="/admin" class="btn">Wróć do listy</a>
 
 <h2>Edycja</h2>
+
+<form method="post" action="/api/save">
 
     {% include 'form.html.twig' %}
 
@@ -14,8 +17,18 @@
     <input type="hidden" name="event" value="save">
     <button class="ajx btn" type="submit">Zapisz</button>
 
+</form>
+
+
+<form method="post" action="/api/delete">
+
+    <input type="hidden" name="user_id" value="{{ user.id }}">
+    <input type="hidden" name="event" value="delete">
+    <button class="ajx btn" type="submit">Usuń wpis</button>
 
 </form>
 
+
+</div>
 
 {% endblock %}

@@ -35,4 +35,9 @@ class UserRead extends User
     {
         return "/admin/user/$this->id";
     }
+
+    public function getAttributes()
+    {
+        return $this->attributes;
+    }
 }

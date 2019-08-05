@@ -108,6 +108,18 @@ let save = (form, obj) => {
 }
 
 
+let delete_user = (form, obj) => {
+ 
+    if(obj.success !== undefined && obj.success === true){
+        alert("Usunięto");
+        window.location.assign("/admin")
+    }else{
+        alert("Nie usunięto");
+    }
+   
+}
+
+
 
 elements = document.querySelectorAll(".ajx");
 for (var i = 0; i < elements.length; i++) {

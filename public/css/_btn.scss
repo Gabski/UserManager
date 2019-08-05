@@ -26,3 +26,14 @@
 
 
 }
+
+
+.link{
+    text-decoration: none;
+    color: rgb(0, 121, 158);
+    transition: .2s;
+
+    &:hover{
+        color: #222;
+    }
+}

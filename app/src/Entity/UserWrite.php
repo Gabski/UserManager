@@ -60,4 +60,9 @@ class UserWrite extends User implements SaveInterface
 
         return true;
     }
+
+    public function delete()
+    {
+        return Db::delete($this->table, $this->id);
+    }
 }

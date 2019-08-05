@@ -13,13 +13,18 @@ class AdminController extends AppController
         $userRep = new UserRepository();
         $user = $userRep->findOneBy(['id' => $args['user_id']]);
 
-        $appRep = new AppRepository('emplacements', 'EmplacementRead');
-        $emplacements = $appRep->findby();
+        if ($user->getId() === $args['user_id']) {
 
-        return new ResponseTwig("admin/user_edit.html.twig", [
-            'user' => $user,
-            'emplacements' => $emplacements,
-        ]);
+            $appRep = new AppRepository('emplacements', 'EmplacementRead');
+            $emplacements = $appRep->findby();
+
+            return new ResponseTwig("admin/user_edit.html.twig", [
+                'user' => $user,
+                'emplacements' => $emplacements,
+            ]);
+        }
+
+        return new ResponseTwig("admin/no_user.html.twig");
     }
 
     public function save($args)
@@ -43,4 +48,26 @@ class AdminController extends AppController
 
         return false;
     }
+
+    public function delete($args)
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $request = $_REQUEST;
+
+            $userRep = new UserRepository(true);
+            $user = $userRep->findOneBy(['id' => $request['user_id']]);
+            $delete = $user->delete();
+
+            $data = [
+                'callback' => 'delete_user',
+                'success' => $delete,
+            ];
+
+            return new ResponseJson($data);
+        }
+
+        return false;
+    }
+
 }

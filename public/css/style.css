@@ -208,6 +208,17 @@ body * {
   border-bottom: 2px solid #012f44;
 }
 
+.link {
+  text-decoration: none;
+  color: #00799e;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.link:hover {
+  color: #222;
+}
+
 .panel {
   min-height: 100px;
   position: relative;
