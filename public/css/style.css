@@ -237,4 +237,52 @@ body * {
   font-weight: 800;
   margin-bottom: 2rem;
 }
+
+.table {
+  border: .1rem solid #e2e1e0;
+  width: 100%;
+  border-collapse: collapse;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.table-striped tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table td,
+.table th {
+  border: .1rem solid #e2e1e0;
+  padding: 0.4rem .5rem;
+  position: relative;
+  min-width: 2rem;
+}
+
+.table td input,
+.table td select,
+.table th input,
+.table th select {
+  width: 100%;
+  margin: 0;
+  padding: inherit;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 100%;
+  position: absolute;
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  top: 0;
+  left: 0;
+}
+
+.table td.number-format,
+.table th.number-format {
+  text-align: right;
+}
+
+.table th {
+  color: black;
+  text-align: left;
+}
 /*# sourceMappingURL=style.css.map */

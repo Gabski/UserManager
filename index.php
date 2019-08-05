@@ -5,6 +5,7 @@ require_once 'app/init.php';
 Router::add("/", "PageController", 'home');
 Router::add("/404", "PageController", 'no_page');
 Router::add("/api/register", "RegisterController", 'register');
+Router::add("/admin", "AdminController", 'list');
 
 try {
     $watch = Router::watch();
@@ -20,3 +21,5 @@ try {
     header('Location: /404');
     die();
 }
+
+Db::close();

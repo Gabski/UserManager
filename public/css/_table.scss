@@ -1,0 +1,48 @@
+.table {
+    border: .1rem solid #e2e1e0;
+    width: 100%;
+    border-collapse: collapse;
+    box-sizing: border-box;
+
+    &-striped {
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    }
+
+
+    td,
+    th {
+        border: .1rem solid #e2e1e0;
+        padding: 0.4rem .5rem;
+        position: relative;
+        min-width: 2rem;
+
+        input,
+        select {
+            width: 100%;
+            margin: 0;
+            padding: inherit;
+            box-sizing: border-box;
+            height: 100%;
+            position: absolute;
+            border: none;
+            box-shadow: none;
+            top: 0;
+            left: 0;
+         
+
+        }
+
+        &.number-format {
+            text-align: right;
+        }
+    }
+
+    th {
+
+        color: black;
+        text-align: left;
+        
+    }
+}

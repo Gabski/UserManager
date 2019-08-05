@@ -9,6 +9,7 @@ function autoload_class_multiple_directory($class_name)
         'Controllers/',
         'Services/',
         'Interfaces/',
+        'Entity/',
     );
 
     $total_paths = count($array_paths);
