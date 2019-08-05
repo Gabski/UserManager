@@ -83,13 +83,28 @@ let validate = function (form) {
 }
 
 
+let pop_alert = (mess, style) => {
+    let alerts = document.querySelector("#alerts");
+
+    let alert = document.createElement('div');
+    alert.classList.add("alerts__alert");
+    if(style !== undefined){
+        alert.classList.add("alerts__alert--" + style);
+    }
+    alert.innerHTML = mess;
+    alerts.appendChild(alert);
+}
+
+
+
+
 let register = (form, obj) => {
  
     if(obj.success !== undefined && obj.success === true){
         form.reset();
-        alert("Rejestrowanie udane");
+        pop_alert("Rejestrowanie udane, wysyłamy email");
     }else{
-        alert("Rejestrowanie nie udane");
+        pop_alert("Rejestrowanie nie udane");
     }
    
 }
@@ -100,9 +115,9 @@ let save = (form, obj) => {
  
     if(obj.success !== undefined && obj.success === true){
        
-        alert("Zapisano");
+        pop_alert("Zapisano");
     }else{
-        alert("Nie zapisano");
+        pop_alert("Nie zapisano");
     }
    
 }
@@ -111,10 +126,10 @@ let save = (form, obj) => {
 let delete_user = (form, obj) => {
  
     if(obj.success !== undefined && obj.success === true){
-        alert("Usunięto");
+        pop_alert("Usunięto");
         window.location.assign("/admin")
     }else{
-        alert("Nie usunięto");
+        pop_alert("Nie usunięto");
     }
    
 }
@@ -135,8 +150,25 @@ for (var i = 0; i < elements.length; i++) {
                   eval(json.callback)(form, json);
                 }
             });
+        }else{
+            pop_alert("Wprowadź dane poprawnie");
         }
     });
 }
 
+
+
+let select = document.getElementById("emplacement");
+let add_form = document.getElementById("add_form");
+
+select.addEventListener("change", function (e) {
+    // pop_alert("jo");
+   
+    add_form.innerHTML = "";
+
+    postAjax("/addons", {'id' : e.target.value}, function (data) {
+        add_form.innerHTML += data;
+    });
+
+});
 

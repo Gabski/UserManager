@@ -10,9 +10,9 @@
     box-sizing: border-box;
     margin: .2rem;
     margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
     z-index: 1;
     
-
     @media screen and (min-width: $base__brake-point) {
         padding:1.2rem;
     }

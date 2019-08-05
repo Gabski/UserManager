@@ -7,6 +7,7 @@ Router::add("/404", "PageController", 'no_page');
 Router::add("/api/register", "RegisterController", 'register');
 Router::add("/api/save", "AdminController", 'save');
 Router::add("/api/delete", "AdminController", 'delete');
+Router::add("/addons", "PageController", 'formAdd');
 Router::add("/admin", "AdminController", 'list');
 Router::add("/admin/user/int:user_id", "AdminController", 'user');
 

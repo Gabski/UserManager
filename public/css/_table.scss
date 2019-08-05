@@ -11,12 +11,14 @@
     }
 
 
+  
     td,
     th {
         border: .1rem solid #e2e1e0;
-        padding: 0.4rem .5rem;
+        padding: 0.6rem .5rem;
         position: relative;
         min-width: 2rem;
+        font-size: 1.2rem;
 
         input,
         select {
@@ -43,6 +45,8 @@
 
         color: black;
         text-align: left;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
         
     }
 }

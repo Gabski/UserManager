@@ -13,6 +13,9 @@ class AdminController extends AppController
         $userRep = new UserRepository();
         $user = $userRep->findOneBy(['id' => $args['user_id']]);
 
+        $addonRep = new AddonRepository();
+        $addons = $addonRep->findby(['emplacement' => $user->getEmplacement()]);
+
         if ($user->getId() === $args['user_id']) {
 
             $appRep = new AppRepository('emplacements', 'EmplacementRead');
@@ -21,6 +24,7 @@ class AdminController extends AppController
             return new ResponseTwig("admin/user_edit.html.twig", [
                 'user' => $user,
                 'emplacements' => $emplacements,
+                'addons' => $addons,
             ]);
         }
 

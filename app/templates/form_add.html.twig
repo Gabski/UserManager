@@ -1,0 +1,9 @@
+{% for addon in addons %}
+
+<div class="input-group input-group--{{ addon.type }}">
+    <label class="input-group__label" for="input-add-{{ addon.id }}">{{ addon.name }}</label>
+    <input  name="addon[{{ addon.id }}]" id="input-add-{{ addon.id }}" type="{{ addon.type }}" class="input-group__input input-group__input--{{ addon.type }}">
+    <span class="input-group__error"></span>
+</div>
+
+{% endfor %}

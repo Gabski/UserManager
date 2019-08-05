@@ -79,6 +79,16 @@ body * {
           flex-direction: column;
 }
 
+.input-group--checkbox {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .input-group__input {
   border: 0px;
   padding: .5rem .5rem;
@@ -98,6 +108,11 @@ body * {
           box-sizing: border-box;
   line-height: 1.5rem;
   font-size: 1rem;
+}
+
+.input-group__input--checkbox {
+  margin-left: auto;
+  width: 1rem;
 }
 
 .input-group__input:focus {
@@ -183,7 +198,6 @@ body * {
 
 .btn {
   position: relative;
-  padding: .5rem 2rem;
   margin: .5rem 0;
   font-size: .8rem;
   text-transform: uppercase;
@@ -232,6 +246,7 @@ body * {
           box-sizing: border-box;
   margin: .2rem;
   margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
   z-index: 1;
 }
 
@@ -264,9 +279,10 @@ body * {
 .table td,
 .table th {
   border: .1rem solid #e2e1e0;
-  padding: 0.4rem .5rem;
+  padding: 0.6rem .5rem;
   position: relative;
   min-width: 2rem;
+  font-size: 1.2rem;
 }
 
 .table td input,
@@ -295,5 +311,59 @@ body * {
 .table th {
   color: black;
   text-align: left;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.alerts {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-width: 10rem;
+  max-width: 20rem;
+  z-index: 999;
+}
+
+.alerts__alert {
+  position: relative;
+  padding: .5rem 2rem;
+  font-size: .8rem;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #FFF;
+  text-decoration: none;
+  background-color: #02638f;
+  border: none;
+  border-bottom: 2px solid #012f44;
+  cursor: pointer;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  padding: .5rem 1rem;
+  margin-top: .1rem;
+  line-height: 1.5rem;
+  pointer-events: none;
+  -webkit-animation: hidden .2s ease-in 5s forwards;
+          animation: hidden .2s ease-in 5s forwards;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+@keyframes hidden {
+  to {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes hidden {
+  to {
+    opacity: 0;
+  }
 }
 /*# sourceMappingURL=style.css.map */

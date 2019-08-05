@@ -3,30 +3,31 @@
 {% block main %}
 
 
-<div  class="panel">
+<div class="panel">
 
-<a href="/admin" class="btn">Wróć do listy</a>
+    <a href="/admin" class="btn">Wróć do listy</a>
 
-<h2>Edycja</h2>
+    <h2>Edycja</h2>
 
-<form method="post" action="/api/save">
+    <form method="post" action="/api/save">
 
-    {% include 'form.html.twig' %}
+        {% include 'form.html.twig' %}
 
-    <input type="hidden" name="user_id" value="{{ user.id }}">
-    <input type="hidden" name="event" value="save">
-    <button class="ajx btn" type="submit">Zapisz</button>
+        <div id="add_form">
+            {% include 'form_add.html.twig' %}
+        </div>
 
-</form>
+        <input type="hidden" name="user_id" value="{{ user.id }}">
+        <input type="hidden" name="event" value="save">
+        <button class="ajx btn" type="submit">Zapisz</button>
+    </form>
 
 
-<form method="post" action="/api/delete">
-
-    <input type="hidden" name="user_id" value="{{ user.id }}">
-    <input type="hidden" name="event" value="delete">
-    <button class="ajx btn" type="submit">Usuń wpis</button>
-
-</form>
+    <form method="post" action="/api/delete">
+        <input type="hidden" name="user_id" value="{{ user.id }}">
+        <input type="hidden" name="event" value="delete">
+        <button class="ajx btn" type="submit">Usuń wpis</button>
+    </form>
 
 
 </div>

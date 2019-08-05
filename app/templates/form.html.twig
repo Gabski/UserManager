@@ -20,7 +20,7 @@
   </div>
   <div class="input-group">
       <label class="input-group__label">Stanowisko</label>
-      <select name="emplacement" class="input-group__input input-group__input--select">
+      <select name="emplacement" id="emplacement" class="input-group__input input-group__input--select">
 
           {% for emplacement in emplacements %}
           <option value="{{emplacement.id}}" {% if emplacement.id == user.emplacement %} selected {% endif %}>
