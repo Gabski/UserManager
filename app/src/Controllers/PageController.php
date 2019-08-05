@@ -4,7 +4,12 @@ class PageController extends AppController
 {
     public function home($args)
     {
-        return new ResponseTwig("register.html.twig");
+        $appRep = new AppRepository('emplacements', 'EmplacementRead');
+        $emplacements = $appRep->findby();
+
+        return new ResponseTwig("register.html.twig", [
+            'emplacements' => $emplacements,
+        ]);
     }
 
     public function no_page($args)

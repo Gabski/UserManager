@@ -1,0 +1,21 @@
+{% extends "layout.html.twig" %}
+
+{% block main %}
+
+
+
+<form method="post" action="/api/save" class="panel">
+
+<h2>Edycja</h2>
+
+    {% include 'form.html.twig' %}
+
+    <input type="hidden" name="user_id" value="{{ user.id }}">
+    <input type="hidden" name="event" value="save">
+    <button class="ajx btn" type="submit">Zapisz</button>
+
+
+</form>
+
+
+{% endblock %}

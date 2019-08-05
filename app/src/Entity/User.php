@@ -2,9 +2,11 @@
 class User extends AppEntity
 {
     protected $id = 0;
-    protected $firstname;
-    protected $lastname;
+    protected $first_name;
+    protected $last_name;
     protected $email;
+    protected $emplacement;
+    protected $description;
 
     public function __construct($array = [])
     {

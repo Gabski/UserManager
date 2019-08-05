@@ -95,6 +95,20 @@ let register = (form, obj) => {
 }
 
 
+
+let save = (form, obj) => {
+ 
+    if(obj.success !== undefined && obj.success === true){
+       
+        alert("Zapisano");
+    }else{
+        alert("Nie zapisano");
+    }
+   
+}
+
+
+
 elements = document.querySelectorAll(".ajx");
 for (var i = 0; i < elements.length; i++) {
     elements[i].addEventListener("click", function (e) {

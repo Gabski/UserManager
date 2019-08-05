@@ -13,4 +13,25 @@ class Tools
 
         return $link;
     }
+
+    public static function listen($event, &$obj)
+    {
+        $request = $_REQUEST;
+        if (isset($request['event']) && $request['event'] == $event) {
+
+            $request = array_merge($request, $_FILES);
+
+            if (is_array($request)) {
+                foreach ($request as $key => $value) {
+                    $setter = "set" . ucfirst($key);
+
+                    if (method_exists($obj, $setter)) {
+                        $obj->$setter($value);
+                    }
+                }
+            }
+            return true;
+        }
+        return false;
+    }
 }

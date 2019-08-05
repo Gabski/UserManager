@@ -1,0 +1,32 @@
+  <div class="input-group">
+      <label class="input-group__label">Imie</label>
+      <input required name="first_name" type="text" value="{{ user.firstName }}" class="input-group__input">
+      <span class="input-group__error"></span>
+  </div>
+  <div class="input-group">
+      <label class="input-group__label">Nazwisko</label>
+      <input required name="last_name" value="{{ user.lastName }}" class="input-group__input">
+      <span class="input-group__error"></span>
+  </div>
+  <div class="input-group">
+      <label class="input-group__label">Email</label>
+      <input name="email" required type="email" value="{{ user.email }}" class="input-group__input">
+      <span class="input-group__error"></span>
+  </div>
+  <div class="input-group">
+      <label class="input-group__label">Opis</label>
+      <textarea name="description" class="input-group__input input-group__input--textara">{{ user.description }}</textarea>
+      <span class="input-group__error"></span>
+  </div>
+  <div class="input-group">
+      <label class="input-group__label">Stanowisko</label>
+      <select name="emplacement" class="input-group__input input-group__input--select">
+
+          {% for emplacement in emplacements %}
+          <option value="{{emplacement.id}}" {% if emplacement.id == user.emplacement %} selected {% endif %}>
+              {{emplacement.name}}</option>
+          {% endfor %}
+
+      </select>
+      <span class="input-group__error"></span>
+  </div>

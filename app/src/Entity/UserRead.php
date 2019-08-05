@@ -11,8 +11,28 @@ class UserRead extends User
         return $this->last_name;
     }
 
+    public function getEmplacement()
+    {
+        return $this->emplacement;
+    }
+
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
     public function getEmail()
     {
         return $this->email;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getEditUrl()
+    {
+        return "/admin/user/$this->id";
     }
 }
