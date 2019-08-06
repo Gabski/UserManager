@@ -40,4 +40,5 @@ class UserRead extends User
     {
         return $this->attributes;
     }
+
 }

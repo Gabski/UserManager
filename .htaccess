@@ -6,7 +6,6 @@ php_flag  log_errors on
 
 RewriteEngine on
 
-RewriteRule ^admin /admin/index.php [L] 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule !.(js|css|ico|gif|jpg|png)$ index.php [L]

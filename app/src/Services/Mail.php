@@ -36,7 +36,11 @@ class Mail
 
     public function send()
     {
-        $headers = "From: " . $this->from;
-        return mail($this->to, $this->subject, $this->message, $headers);
+
+        $headers[] = 'MIME-Version: 1.0';
+        $headers[] = 'Content-type: text/html; charset=UTF-8';
+        $headers[] = 'From: System email <' . $this->from . '>';
+
+        return mail($this->to, $this->subject, $this->message, implode("\r\n", $headers));
     }
 }

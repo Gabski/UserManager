@@ -90,7 +90,7 @@ class UserWrite extends User implements SaveInterface
             $attribute->setUser_id($id)->save();
         }
 
-        return true;
+        return $id;
     }
 
     public function delete()

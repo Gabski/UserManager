@@ -13,9 +13,13 @@ class ResponseTwig implements ResponseInterface
         $this->args = $args;
     }
 
+    public function getTwig()
+    {
+        return $this->twig->render($this->tpl, $this->args);
+    }
+
     public function render()
     {
-
         echo $this->twig->render($this->tpl, $this->args);
     }
 }

@@ -12,14 +12,20 @@ class RegisterController extends AppController
             Tools::listen('register', $user);
             $save = $user->save();
 
-            if ($save) {
+            $userRep = new UserRepository();
+            $user = $userRep->findOneBy(['id' => $save]);
+            $success = $user != null;
+
+            if ($success) {
+
+                $message = new ResponseTwig("email.html.twig", ['user' => $user]);
 
                 $email = new Mail();
                 $email
                     ->setSubject("Udana rejestracja")
                     ->setFrom("gabski@automail.com")
                     ->setTo($_REQUEST['email'])
-                    ->setMessage("Udane")
+                    ->setMessage($message->getTwig())
                 ;
 
                 $send = $email->send();
@@ -27,7 +33,7 @@ class RegisterController extends AppController
 
             $data = [
                 'callback' => 'register',
-                'success' => $save,
+                'success' => $success,
                 'email' => $send,
             ];
 
