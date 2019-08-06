@@ -38,6 +38,31 @@ class UserWrite extends User implements SaveInterface
         return $this;
     }
 
+    public function setAttributes($attributes)
+    {
+
+        // foreach ($this->attributes as $attributeA) {
+        //     foreach ($attributes as $key => $attributeB) {
+        //         if ($attributeA->getId() == $key) {
+        //             $attributeA->setValue($attributeB);
+        //             unset($attributes[$key]);
+        //         }
+        //     }
+        // }
+
+        foreach ($attributes as $key => $attribute) {
+            if ($attribute != null) {
+                $new = new AttributeWrite();
+                $new
+                    ->setAddon_id($key)
+                    ->setValue($attribute);
+                $this->attributes[] = $new;
+            }
+        }
+
+        return $this;
+    }
+
     public function save()
     {
 
@@ -57,12 +82,27 @@ class UserWrite extends User implements SaveInterface
         }
 
         $id = Db::flush($this->table, $save, $this->id);
+        $id = $this->id == 0 ? $id : $this->id;
+
+        $this->delete_attributes();
+
+        foreach ($this->attributes as $key => $attribute) {
+            $attribute->setUser_id($id)->save();
+        }
 
         return true;
     }
 
     public function delete()
     {
+        $this->delete_attributes();
         return Db::delete($this->table, $this->id);
+    }
+
+    public function delete_attributes()
+    {
+        foreach ($this->attributes as $key => $attribute) {
+            $attribute->delete();
+        }
     }
 }

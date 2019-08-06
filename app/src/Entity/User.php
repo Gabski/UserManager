@@ -18,7 +18,8 @@ class User extends AppEntity
 
     protected function loadAttributes()
     {
-        $this->attributes = [];
+        $productAttributeRep = new AddonRepository();
+        $this->attributes = $productAttributeRep->findAttributes($this->id);
     }
 
 }

@@ -37,6 +37,6 @@ class Mail
     public function send()
     {
         $headers = "From: " . $this->from;
-        return mail($this->to, $this->subject, $this->$message, $headers);
+        return mail($this->to, $this->subject, $this->message, $headers);
     }
 }

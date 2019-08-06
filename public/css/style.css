@@ -329,6 +329,7 @@ body * {
   min-width: 10rem;
   max-width: 20rem;
   z-index: 999;
+  pointer-events: none;
 }
 
 .alerts__alert {

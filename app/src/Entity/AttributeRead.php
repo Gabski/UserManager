@@ -1,5 +1,5 @@
 <?php
-class AddonRead extends Addon
+class AttributeRead extends Attribute
 {
 
     public function getId()
@@ -22,4 +22,18 @@ class AddonRead extends Addon
         return $this->emplacement;
     }
 
+    public function getValue()
+    {
+        return $this->value ?? "";
+    }
+
+    public function getUser_id()
+    {
+        return $this->user_id ?? 0;
+    }
+
+    public function getAddon_id()
+    {
+        return $this->addon_id ?? "";
+    }
 }
